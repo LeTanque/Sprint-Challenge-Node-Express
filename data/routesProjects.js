@@ -13,6 +13,18 @@ routesProjects.get('/', async (req, res) => {
 });
 
 
+
+// New endpoint to return all the projects
+routesProjects.get('/all', async (req, res) => {    
+    try {
+        const project = await ProjectModel.getAll(req.params.id);
+        res.status(200).json({ message:"Success!", projects: project});
+    } catch (error) {
+        res.status(500).json({ error: "The projects could not be retrieved." });
+    }
+});
+
+
 // Get a project
 routesProjects.get('/:id', async (req, res) => {
     try {

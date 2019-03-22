@@ -22,6 +22,9 @@ module.exports = {
       return projects.map(project => mappers.projectToBody(project));
     });
   },
+  getAll: function() {
+    return db('projects');
+  },
   getProjectById: function(id) {
     return db('projects')
       .where({ id })
