@@ -96,17 +96,13 @@ routesActions.put('/:id', async (req, res) => {
 
     try {
         const updateAction = await ActionModel.update(req.params.id, req.body)
-        res.status(200).json({ message: `${updateAction} actions have been successfully deleted`, previousAction: checkActionExists })
+        res.status(200).json({ message: "Success!", updatedAction:updateAction, previousAction: checkActionExists })
     }
     catch (error) {
         res.status(500).json({ message: "Something went wrong updating action."})
     }
 })
 
-
-
-
-// update
 
 
 module.exports = routesActions;
