@@ -25,14 +25,26 @@ In this challenge, create a web API around the following resources: `Projects` a
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Mention two parts of Express that you learned about this week.
+Express is really cool. It's a minimal web app framework. I learned that it can be expanded upon with middleware; in many, almost unlimited, directions. I also learned that Express acts like an ambassador of sorts for front end to back end. Languages and frameworks can be different, but we have been using it to connect React to an SQLite db.
 
 - [ ] Describe Middleware?
+Middleware is something that runs in between two pieces of software. In my experience, helmet is a great example of middleware. It resides at the topmost level of the programs architecture and injects modified headers into every request the server serves. 
+
 
 - [ ] Describe a Resource?
+If this was in person, I'd ask for context. But assuming we're talking about express, a resource is something the server uses and/or serves. Examples would be tables in a database.
+
+
 
 - [ ] What can the API return to help clients know if a request was successful?
+A 200 status code! 
+
 
 - [ ] How can we partition our application into sub-applications?
+We can use and Express app to mount other express apps. 
+.use()
+
+
 
 ## Project Setup
 
