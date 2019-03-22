@@ -5,31 +5,20 @@ import React, {
   // useReducer,
   // useState,
 } from 'react';
-import ProjectsContext from '../state/context';
+import Project from './Project.jsx';
 
 
 
-
-
-
-const Projects = () => {
-  
-
-
-
-  // console.log(props)
-
+const Projects = props => {  
   return (
-    <ProjectsContext.Consumer>
       <Fragment>
+
           <h3>Projects</h3>
 
-          {/* {this.props.projects.map(project => console.log(project))} */}
+          <Project projectsAll={props.projectsAll} />
 
       </Fragment>
-    </ProjectsContext.Consumer>
   );
-
 }
 
 export default Projects;
