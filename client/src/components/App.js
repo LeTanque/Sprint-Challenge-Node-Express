@@ -1,15 +1,17 @@
 import React, { 
-  // Fragment,
+  Fragment,
   // useContext, 
   // useReducer, 
   useEffect, 
   useState
 } from 'react';
 import axios from 'axios';
-import logo from '../assets/logo.svg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import { StateProvider } from '../state/index.js';
 
 import Projects from './Projects.jsx';
+import ProjectDetail from './ProjectDetail.jsx';
 
 
 
@@ -42,7 +44,7 @@ const App = () => {
 
   // const initialState = useContext(ProjectsContext);
   // const [ state, dispatch ] = useReducer(reducer, initialState);
-  const projectsAll = useAPI("http://localhost:5000/api/projects/all");
+  const projectsAll = useAPI("http://localhost:5000/api/projects");
 
   
 
@@ -60,17 +62,34 @@ const App = () => {
 
   
   return (
-    <StateProvider initialState={initialState} reducer={reducer} >
-      {/* {console.log('App.js  :', initialState)} */}
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-
+    <Fragment>
+      <Router>
+        <StateProvider initialState={initialState} reducer={reducer} >
+        
           <Projects projectsAll={projectsAll} />
-        </header>
-      </div>
-    
-    </StateProvider>
+            
+
+
+
+          {/* <Route 
+            path='/'
+            render={() => {
+              <Projects projectsAll={projectsAll} />
+            }}
+          /> */}
+          <Route 
+            path='/project/:id'
+            render={props => (
+              <ProjectDetail 
+                id={props.match.params.id}
+                history={props.history}
+              />
+            )}
+          />
+          
+        </StateProvider>
+      </Router>
+    </Fragment>
   );
 }
 

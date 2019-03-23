@@ -42,24 +42,12 @@ a {
   margin: 0 auto;
   pointer-events: none;
 }
-.posts .post-title {
-  font-size: 2.2rem;
-  font-style: italic;
-}
-.posts .post-contents {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-.posts .post-id {
-  font-size: 1rem;
-}
-.posts .post-actions {
-  font-size: 2.4rem;
-  cursor: pointer;
-}
-.posts .post-actions .post-delete {
-  color: red;
-}
-.posts .post-actions .post-edit {
-  color: darkcyan;
+.project-card {
+  background-color: rgba(8, 8, 8, 0.25);
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 10px 0;
+  padding: 10px 20px 10px 10px;
+  width: 100%;
+  max-width: 500px;
 }
