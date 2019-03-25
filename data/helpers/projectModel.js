@@ -12,6 +12,9 @@ module.exports = {
 
       return Promise.all(promises).then(function(results) {
         let [project, actions] = results;
+        if (!project) {
+          return null;
+        }
         project.actions = actions;
 
         return mappers.projectToBody(project);
@@ -21,6 +24,14 @@ module.exports = {
     return query.then(projects => {
       return projects.map(project => mappers.projectToBody(project));
     });
+  },
+  getAll: function() {
+    return db('projects');
+  },
+  getProjectById: function(id) {
+    return db('projects')
+      .where({ id })
+      .first();
   },
   getProjectActions: function(projectId) {
     return db('actions')
